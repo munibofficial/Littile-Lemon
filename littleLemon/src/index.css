@@ -70,8 +70,7 @@ button:focus-visible {
 }
 .container {
   display: grid;
-  background-color: #1a1a1a;
-  height: 2829px;
+  background-color: transparent;
   width: 1440px;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr 3fr 1fr;
@@ -82,11 +81,22 @@ button:focus-visible {
   grid-column: 1 / -1;
   background-color: firebrick;
 }
+/* Footer.css */
+.footer {
+  /* display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 10px;
+  align-items: center; */
+}
+
 
 .navbar {
   grid-row: 2;
   grid-column: 1;
-  background-color: #213547;
 }
 
 .main {
@@ -103,10 +113,90 @@ button:focus-visible {
 
 .footer {
   grid-column: 1 / -1;
-  background-color: red;
 }
 input [type="date"]{
   border: 1px solid #ccc;
   padding: 5px;
   border-radius: 5px;
+}
+form {
+  background-color: #f2f2f2; /* Change according to your preferred color */
+  border-radius: 16px;
+  width: 100rm;
+  padding: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+input, select {
+  background-color: #e6e6e6; /* Change according to your preferred color */
+  color: #333; /* Change according to your preferred color */
+  border: none;
+  border-radius: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: rgba(73, 94, 87); /* Change according to your preferred color */
+  color: white; /* Change according to your preferred color */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: black; /* Change according to your preferred color */
+}
+/* This will affect both the date input and the dropdown select */
+input[type="date"], select {
+  width: 100%;  /* make it take the full width of its container */
+  padding: 12px 20px;  /* add some padding */
+  margin: 8px 0;  /* add some margin */
+  box-sizing: border-box;  /* this makes sure that padding is included in total width */
+  border: 2px solid #ccc;  /* add a border */
+  border-radius: 16px;  /* round the corners */
+  background-color: #f8f8f8;  /* set a background color */
+  font-size: 16px;  /* increase the font size */
+  appearance: none;  /* remove default appearance */
+}
+
+/* This is to style the dropdown arrow */
+select {
+  background: url('dropdown-arrow.png') no-repeat right #f8f8f8;  /* replace 'dropdown-arrow.png' with the path to your custom dropdown arrow image */
+  padding-right: 30px;  /* add some padding on the right to make room for the custom arrow */
+}
+
+/* This is to style the submit button */
+input[type="submit"] {
+  background-color: #4CAF50;  /* change the background color */
+  color: white;  /* change the text color */
+  border: none;  /* remove the border */
+  cursor: pointer;  /* change the cursor when hovering over the button */
+  transition: background 0.3s ease;  /* add a transition effect */
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;  /* change the background color when hovering */
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
 }

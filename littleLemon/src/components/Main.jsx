@@ -1,39 +1,34 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import BookingForm from './BookingForm'; // Don't forget to adjust this path to the actual location of your BookingForm file
 
+const initialAvailableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+
 function availableTimesReducer(state, action) {
-  // Return available times from the action
-  return action.times;
+  // For now, this reducer just returns the same available times regardless of the date
+  return initialAvailableTimes;
 }
 
 function Main() {
-  const [availableTimes, dispatchAvailableTimes] = useReducer(availableTimesReducer, []);
-  console.log(fetchAPI); // Should log a function if fetchAPI is globally available
-
+  const [date, setDate] = useState('');
+  const [availableTimes, dispatchAvailableTimes] = useReducer(availableTimesReducer, initialAvailableTimes);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // get your form data and call the API's submit function
-    // const success = submitAPI(formData);
-    // if (success) alert('Booking confirmed');
+    alert(`Booking confirmed for date: ${date}`);
   };
 
-  // Initial fetch for today's date
-  useEffect(() => {
-    const date = new Date(); // today's date
-    fetchAPI(date).then(times => dispatchAvailableTimes({ type: 'SET_TIMES', times }));
-  }, []);
-
   const handleDateChange = (event) => {
-    const selectedDate = new Date(event.target.value);
-    fetchAPI(selectedDate).then(times => dispatchAvailableTimes({ type: 'SET_TIMES', times }));
+    setDate(event.target.value);
+    // Dispatch the state change when the date field is changed
+    dispatchAvailableTimes({ type: 'CHANGE_TIMES', date: event.target.value });
   };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <BookingForm
-        handleSubmit={handleSubmit}
+        date={date}
         handleDateChange={handleDateChange}
+        handleSubmit={handleSubmit}
         availableTimes={availableTimes}
       />
     </div>
